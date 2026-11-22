@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard | Cybernetics Wings</title>
+  <link rel="icon" href="/assets/logo-icon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/admin/admin.css" />
+</head>
+<body>
+  <div id="login-view" class="login-view">
+    <form id="login-form" class="login-card">
+      <img src="/assets/logo-icon.png" alt="Cybernetics Wings" class="login-logo" />
+      <h1>Admin Dashboard</h1>
+      <p>Sign in to manage your website content.</p>
+      <p class="login-hint">1) Double-click <code>start.bat</code> &nbsp; 2) Open <strong>http://localhost:3000/admin</strong></p>
+      <p id="server-status" class="server-status">Checking server...</p>
+      <label>Username<input id="login-user" type="text" required autocomplete="username" value="admin" /></label>
+      <label>Password<input id="login-pass" type="password" required autocomplete="current-password" /></label>
+      <button type="submit">Sign In</button>
+      <p id="login-error" class="error" hidden></p>
+    </form>
+  </div>
+
+  <div id="dash-view" class="dash-view" hidden>
+    <aside class="sidebar">
+      <div class="side-brand">
+        <img src="/assets/logo-icon.png" alt="" />
+        <div>
+          <strong>Cybernetics Wings</strong>
+          <span>Admin Panel</span>
+        </div>
+      </div>
+      <nav>
+        <button type="button" class="nav-btn active" data-tab="contact">Contact Details</button>
+        <button type="button" class="nav-btn" data-tab="social">Social Media</button>
+        <button type="button" class="nav-btn" data-tab="services">Services</button>
+        <button type="button" class="nav-btn" data-tab="team">Our Team</button>
+        <button type="button" class="nav-btn" data-tab="clients">Our Clients</button>
+      </nav>
+      <div class="side-actions">
+        <a href="/" target="_blank" rel="noopener">View Website</a>
+        <button type="button" id="logout-btn">Logout</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <h2 id="page-title">Contact Details</h2>
+        <p id="status-msg" class="status" aria-live="polite"></p>
+      </header>
+
+      <!-- Contact -->
+      <section id="tab-contact" class="tab active">
+        <form id="contact-form" class="panel-form">
+          <div class="grid-2">
+            <label>Company<input name="company" required /></label>
+            <label>Founder<input name="founder" /></label>
+            <label>Location<input name="location" /></label>
+            <label>Phone / WhatsApp<input name="phone" /></label>
+            <label>Email<input name="email" type="email" /></label>
+            <label>Business Hours<input name="hours" /></label>
+            <label class="full">Office Address<textarea name="address" rows="3"></textarea></label>
+          </div>
+          <button type="submit">Save Contact Details</button>
+        </form>
+      </section>
+
+      <!-- Social -->
+      <section id="tab-social" class="tab">
+        <form id="social-form" class="panel-form">
+          <div class="grid-2">
+            <label>Instagram URL<input name="instagram" placeholder="https://instagram.com/..." /></label>
+            <label>Facebook URL<input name="facebook" placeholder="https://facebook.com/..." /></label>
+            <label>LinkedIn URL<input name="linkedin" placeholder="https://linkedin.com/..." /></label>
+            <label>YouTube URL<input name="youtube" placeholder="https://youtube.com/..." /></label>
+          </div>
+          <button type="submit">Save Social Links</button>
+        </form>
+      </section>
+
+      <!-- Services -->
+      <section id="tab-services" class="tab">
+        <div class="toolbar">
+          <button type="button" id="add-service-btn" class="btn-secondary">+ Add Service</button>
+        </div>
+        <div id="services-list" class="cards"></div>
+
+        <dialog id="service-dialog">
+          <form id="service-form" method="dialog">
+            <h3 id="service-dialog-title">Add Service</h3>
+            <input type="hidden" name="editId" />
+            <label>Service ID (slug)<input name="id" placeholder="e.g. website" /></label>
+            <label>Title<input name="title" required /></label>
+            <label>Subtitle<input name="subtitle" /></label>
+            <label>Description<textarea name="description" rows="3" required></textarea></label>
+            <label>Features (one per line)<textarea name="features" rows="5"></textarea></label>
+            <label>Benefits (one per line)<textarea name="benefits" rows="4"></textarea></label>
+            <label>Ideal For<input name="idealFor" /></label>
+            <label>CTA Button Text<input name="cta" /></label>
+            <div class="dialog-actions">
+              <button type="button" id="cancel-service" class="btn-ghost">Cancel</button>
+              <button type="submit">Save Service</button>
+            </div>
+          </form>
+        </dialog>
+      </section>
+
+      <!-- Team -->
+      <section id="tab-team" class="tab">
+        <div class="toolbar">
+          <button type="button" id="add-team-btn" class="btn-secondary">+ Add Team Member</button>
+        </div>
+        <div id="team-list" class="cards"></div>
+
+        <dialog id="team-dialog">
+          <form id="team-form" method="dialog" enctype="multipart/form-data">
+            <h3 id="team-dialog-title">Add Team Member</h3>
+            <input type="hidden" name="editId" />
+            <label>Name<input name="name" required /></label>
+            <label>Role / Position<input name="role" required /></label>
+            <label>Bio<textarea name="bio" rows="4"></textarea></label>
+            <label class="check"><input name="isLead" type="checkbox" /> Mark as lead / founder card</label>
+            <label>Photo<input name="photo" type="file" accept="image/*" /></label>
+            <div id="team-photo-preview" class="photo-preview" hidden></div>
+            <div class="dialog-actions">
+              <button type="button" id="cancel-team" class="btn-ghost">Cancel</button>
+              <button type="submit">Save Member</button>
+            </div>
+          </form>
+        </dialog>
+      </section>
+
+      <!-- Clients -->
+      <section id="tab-clients" class="tab">
+        <form id="clients-visibility-form" class="panel-form visibility-panel">
+          <div class="visibility-row">
+            <div>
+              <h3>Website Visibility</h3>
+              <p class="meta">Show or hide the Our Clients section on the public website (Home &amp; About).</p>
+            </div>
+            <label class="switch-label">
+              <input type="checkbox" id="show-clients-toggle" name="showClients" />
+              <span>Show Our Clients on website</span>
+            </label>
+          </div>
+          <button type="submit">Save Visibility</button>
+        </form>
+        <div class="toolbar">
+          <button type="button" id="add-client-btn" class="btn-secondary">+ Add Client</button>
+        </div>
+        <div id="clients-list" class="cards"></div>
+
+        <dialog id="client-dialog">
+          <form id="client-form" method="dialog" enctype="multipart/form-data">
+            <h3 id="client-dialog-title">Add Client</h3>
+            <input type="hidden" name="editId" />
+            <label>Client Name<input name="name" required /></label>
+            <label>Industry / Type<input name="industry" placeholder="e.g. Retail, Hotel, Startup" /></label>
+            <label>Short Description<textarea name="description" rows="3"></textarea></label>
+            <label>Website URL<input name="website" type="url" placeholder="https://..." /></label>
+            <label>Logo / Photo<input name="logo" type="file" accept="image/*" /></label>
+            <div id="client-logo-preview" class="photo-preview" hidden></div>
+            <div class="dialog-actions">
+              <button type="button" id="cancel-client" class="btn-ghost">Cancel</button>
+              <button type="submit">Save Client</button>
+            </div>
+          </form>
+        </dialog>
+      </section>
+    </main>
+  </div>
+
+  <script src="/admin/admin.js"></script>
+</body>
+</html>

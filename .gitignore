@@ -1,0 +1,7 @@
+node_modules/
+uploads/team/*
+!uploads/team/.gitkeep
+uploads/clients/*
+!uploads/clients/.gitkeep
+.DS_Store
+*.log

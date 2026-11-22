@@ -1,0 +1,16 @@
+{
+  "name": "cybernetics-wings",
+  "version": "1.0.0",
+  "description": "Cybernetics Wings website with admin dashboard",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node server/index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.2",
+    "uuid": "^11.1.0"
+  }
+}
