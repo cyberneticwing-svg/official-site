@@ -1,43 +1,65 @@
 # Cybernetics Wings — Admin Dashboard
 
-## Start the website + dashboard
-
-Open PowerShell in this folder and run:
+## Local (your PC)
 
 ```powershell
 npm install
 npm start
 ```
 
-Then open:
+Or double-click `start.bat`.
 
-- Website: http://localhost:3000
-- Admin: http://localhost:3000/admin
+- Website: http://localhost:3000  
+- Admin: http://localhost:3000/admin  
 
-Important: use `npm start` (not `npx serve`). Only `npm start` enables admin login.
-
-## Login
+Login:
 
 - Username: `admin`
 - Password: `admin123`
 
-Change these later in `server/config.js`.
+## Admin on Vercel (live site)
+
+Admin can run on your Vercel URL (example: `https://your-site.vercel.app/admin`).
+
+### 1. Create a GitHub token
+
+1. GitHub → **Settings** → **Developer settings** → **Personal access tokens** → **Fine-grained tokens**
+2. Generate a token for the `official-site` repo
+3. Permission needed: **Contents: Read and write**
+4. Copy the token
+
+### 2. Add env vars in Vercel
+
+Vercel → your project → **Settings** → **Environment Variables**:
+
+| Name | Value |
+|------|--------|
+| `GITHUB_TOKEN` | the token from step 1 |
+| `ADMIN_PASSWORD` | a strong password (recommended) |
+| `ADMIN_JWT_SECRET` | any long random string |
+
+Optional:
+
+| Name | Value |
+|------|--------|
+| `ADMIN_USERNAME` | default `admin` |
+| `GITHUB_REPO` | `cyberneticwing-svg/official-site` (auto-detected on Vercel) |
+| `GITHUB_BRANCH` | `main` |
+
+### 3. Redeploy
+
+After saving env vars, trigger a Redeploy on Vercel.
+
+Then open: `https://YOUR-SITE.vercel.app/admin`
+
+### How saves work on Vercel
+
+When you save in admin, the API commits updates to GitHub. Vercel then redeploys (~1 minute) so the public site updates.
 
 ## What you can manage
 
-1. **Contact Details** — phone, email, address, hours, etc.
-2. **Social Media** — Instagram, Facebook, LinkedIn, YouTube
-3. **Services** — add, edit, delete service content
-4. **Our Team** — add, edit, delete members and upload photos
-5. **Our Clients** — add, edit, delete clients and upload logos
-
-Changes appear on the public website after refresh.
-
-## Vercel / live site
-
-The public website on Vercel is static. **Admin login does not work on Vercel.**
-
-To update content:
-1. Run `start.bat` on your PC
-2. Edit at http://localhost:3000/admin
-3. Commit and push to GitHub so Vercel redeploys
+1. **Contact Details**
+2. **Social Media**
+3. **Services**
+4. **Our Team** (photo uploads)
+5. **Our Clients** (logo uploads + show/hide)

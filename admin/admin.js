@@ -65,28 +65,13 @@
       return false;
     }
 
-    if (!isLocalHost()) {
-      if (serverStatus) {
-        serverStatus.textContent = "Admin is local-only (not available on Vercel)";
-        serverStatus.className = "server-status bad";
-      }
-      showLoginError(
-        "Admin does not run on Vercel. On your PC: double-click start.bat, then open http://localhost:3000/admin to edit. Push changes to update the live site."
-      );
-      const form = document.getElementById("login-form");
-      if (form) {
-        form.querySelectorAll("input, button").forEach((el) => {
-          el.disabled = true;
-        });
-      }
-      return false;
-    }
-
     try {
       const res = await fetch(`${API_BASE}/api/site`);
       if (!res.ok) throw new Error("bad");
       if (serverStatus) {
-        serverStatus.textContent = `Server connected (${API_BASE})`;
+        serverStatus.textContent = isLocalHost()
+          ? `Server connected (${API_BASE})`
+          : `Connected on Vercel (${API_BASE})`;
         serverStatus.className = "server-status ok";
       }
       showLoginError("");
@@ -96,18 +81,32 @@
         serverStatus.textContent = "Server not connected";
         serverStatus.className = "server-status bad";
       }
-      showLoginError("Server not running. Double-click start.bat, wait for it to start, then refresh this page.");
+      showLoginError(
+        isLocalHost()
+          ? "Server not running. Double-click start.bat, wait for it to start, then refresh this page."
+          : "API not ready yet. Wait for the latest Vercel deploy to finish, then refresh."
+      );
       return false;
     }
   }
 
   function setStatus(message, isError = false) {
-    statusMsg.textContent = message || "";
+    let text = message || "";
+    if (
+      text &&
+      !isError &&
+      !isLocalHost() &&
+      /(saved|updated|added|deleted|visible|hidden)/i.test(text)
+    ) {
+      text = `${text}. Live site updates in about 1 minute.`;
+    }
+    statusMsg.textContent = text;
     statusMsg.style.color = isError ? "#b91c1c" : "#38898a";
-    if (message) {
+    if (text) {
+      const ms = isLocalHost() ? 3200 : 7000;
       setTimeout(() => {
-        if (statusMsg.textContent === message) statusMsg.textContent = "";
-      }, 3200);
+        if (statusMsg.textContent === text) statusMsg.textContent = "";
+      }, ms);
     }
   }
 
