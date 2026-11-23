@@ -32,3 +32,12 @@ Change these later in `server/config.js`.
 5. **Our Clients** — add, edit, delete clients and upload logos
 
 Changes appear on the public website after refresh.
+
+## Vercel / live site
+
+The public website on Vercel is static. **Admin login does not work on Vercel.**
+
+To update content:
+1. Run `start.bat` on your PC
+2. Edit at http://localhost:3000/admin
+3. Commit and push to GitHub so Vercel redeploys

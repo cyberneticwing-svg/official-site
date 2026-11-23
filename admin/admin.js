@@ -50,6 +50,11 @@
     return data;
   }
 
+  function isLocalHost() {
+    const host = window.location.hostname;
+    return host === "localhost" || host === "127.0.0.1";
+  }
+
   async function checkServer() {
     if (window.location.protocol === "file:") {
       showLoginError("Do not open admin as a file. Run start.bat, then open http://localhost:3000/admin");
@@ -59,6 +64,24 @@
       }
       return false;
     }
+
+    if (!isLocalHost()) {
+      if (serverStatus) {
+        serverStatus.textContent = "Admin is local-only (not available on Vercel)";
+        serverStatus.className = "server-status bad";
+      }
+      showLoginError(
+        "Admin does not run on Vercel. On your PC: double-click start.bat, then open http://localhost:3000/admin to edit. Push changes to update the live site."
+      );
+      const form = document.getElementById("login-form");
+      if (form) {
+        form.querySelectorAll("input, button").forEach((el) => {
+          el.disabled = true;
+        });
+      }
+      return false;
+    }
+
     try {
       const res = await fetch(`${API_BASE}/api/site`);
       if (!res.ok) throw new Error("bad");
