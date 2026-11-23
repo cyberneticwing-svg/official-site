@@ -1,0 +1,257 @@
+{
+  "contact": {
+    "company": "Cybernetics Wings",
+    "founder": "Ramit Angle",
+    "location": "Goa, India",
+    "phone": "7030789092 / 7887303200",
+    "email": "cyberneticwing@gmail.com",
+    "address": "",
+    "hours": "Mon-Fri, 9:00 AM - 6:30 PM IST"
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/cybernetic_wings/",
+    "facebook": "",
+    "linkedin": "",
+    "youtube": ""
+  },
+  "settings": {
+    "showClients": false
+  },
+  "services": [
+    {
+      "id": "website",
+      "title": "Website Design & Development",
+      "subtitle": "Professional Websites That Build Your Digital Identity",
+      "description": "Create a strong online presence with professional, responsive and user-friendly websites designed to represent your brand and connect with your customers.",
+      "features": [
+        "Business and corporate website development",
+        "Startup and portfolio websites",
+        "E-commerce website development",
+        "Responsive website design",
+        "Landing page development",
+        "Website redesign and improvements",
+        "Website maintenance and updates"
+      ],
+      "benefits": [
+        "Establish a professional online presence.",
+        "Reach customers beyond your local area.",
+        "Showcase your products and services.",
+        "Generate enquiries and business opportunities.",
+        "Provide a better experience across devices."
+      ],
+      "idealFor": "",
+      "cta": "Build Your Website With Us"
+    },
+    {
+      "id": "billing",
+      "title": "Billing Software Solutions",
+      "subtitle": "Simplify Your Billing and Business Transactions",
+      "description": "Simplify your daily transactions with efficient billing and invoicing software designed to make business operations easier and more organized.",
+      "features": [
+        "GST-compliant invoicing, where applicable",
+        "Sales and purchase records",
+        "Product and service management",
+        "Customer information management",
+        "Invoice generation and printing",
+        "Payment tracking",
+        "Business reports",
+        "POS billing functionality, where required"
+      ],
+      "benefits": [
+        "Reduce manual billing work.",
+        "Improve transaction management.",
+        "Maintain organized sales records.",
+        "Save time during daily operations.",
+        "Access useful business information."
+      ],
+      "idealFor": "Retail shops, supermarkets, restaurants, cafes and other businesses.",
+      "cta": "Enquire About Billing Software"
+    },
+    {
+      "id": "inventory",
+      "title": "Inventory Management Systems",
+      "subtitle": "Take Control of Your Stock and Inventory",
+      "description": "Manage your stock, monitor inventory movements and improve product tracking with smart inventory management solutions.",
+      "features": [
+        "Product and category management",
+        "Stock tracking",
+        "Stock-in and stock-out records",
+        "Low-stock alerts",
+        "Purchase and supplier records",
+        "Inventory reporting",
+        "Product movement tracking",
+        "Integration with billing systems, where required"
+      ],
+      "benefits": [
+        "Maintain better stock visibility.",
+        "Reduce manual record-keeping.",
+        "Monitor product availability.",
+        "Improve inventory organization.",
+        "Make more informed purchasing decisions."
+      ],
+      "idealFor": "Retail stores, wholesalers, supermarkets, warehouses and product-based businesses.",
+      "cta": "Improve Your Inventory Management"
+    },
+    {
+      "id": "seo",
+      "title": "Search Engine Optimization (SEO)",
+      "subtitle": "Improve Your Website's Visibility on Google",
+      "description": "Improve your website's visibility on search engines and help potential customers discover your business through effective SEO strategies.",
+      "features": [
+        "Keyword research",
+        "On-page SEO",
+        "Technical SEO",
+        "Website content optimization",
+        "Meta title and description optimization",
+        "Image optimization",
+        "Local SEO",
+        "SEO performance monitoring"
+      ],
+      "benefits": [
+        "Improve search engine visibility.",
+        "Reach people searching for your services.",
+        "Build organic website traffic.",
+        "Strengthen online credibility.",
+        "Support long-term digital growth."
+      ],
+      "idealFor": "",
+      "cta": "Improve Your Google Visibility"
+    },
+    {
+      "id": "marketing",
+      "title": "Digital Marketing",
+      "subtitle": "Grow Your Business Through Digital Marketing",
+      "description": "Build your brand, reach your target audience and grow your business through strategic digital marketing and online promotion.",
+      "features": [
+        "Social media marketing",
+        "Social media account management",
+        "Facebook and Instagram advertising",
+        "Google advertising campaigns",
+        "Online brand promotion",
+        "Digital campaign planning",
+        "Content strategy",
+        "Marketing performance analysis"
+      ],
+      "benefits": [
+        "Increase brand awareness.",
+        "Reach relevant audiences.",
+        "Promote products and services.",
+        "Generate potential customer enquiries.",
+        "Build stronger customer engagement."
+      ],
+      "idealFor": "",
+      "cta": "Grow Your Business Online"
+    },
+    {
+      "id": "video",
+      "title": "Video Editing",
+      "subtitle": "Create Engaging Videos That Tell Your Brand Story",
+      "description": "Make your brand stand out with engaging promotional videos, social media reels, business presentations and professional video content.",
+      "features": [
+        "Promotional video editing",
+        "Social media reels and shorts",
+        "Business and corporate videos",
+        "Product promotional videos",
+        "Advertisement video editing",
+        "YouTube video editing",
+        "Basic motion graphics and visual enhancements",
+        "Video formatting for different platforms"
+      ],
+      "benefits": [
+        "Present your brand professionally.",
+        "Improve audience engagement.",
+        "Showcase products and services.",
+        "Create content for social media platforms.",
+        "Communicate your message visually."
+      ],
+      "idealFor": "",
+      "cta": "Create Your Business Videos"
+    },
+    {
+      "id": "custom",
+      "title": "Custom Software Development",
+      "subtitle": "Software Built Around Your Business Requirements",
+      "description": "Get software designed around your specific business requirements. We develop customized digital solutions to help automate processes and solve business challenges.",
+      "features": [
+        "Business management software",
+        "Customized billing applications",
+        "Inventory and stock management software",
+        "Customer management systems",
+        "Employee and staff management systems",
+        "Data management applications",
+        "Workflow automation solutions",
+        "Web-based business applications",
+        "Customized software integrations"
+      ],
+      "benefits": [
+        "Built around your real workflows.",
+        "Automate repetitive business tasks.",
+        "Organize information in one place.",
+        "Scale features as your business grows.",
+        "Integrate with tools you already use."
+      ],
+      "idealFor": "",
+      "cta": "Discuss Your Custom Software Project"
+    }
+  ],
+  "team": [
+    {
+      "id": "ramit-angle",
+      "name": "Ramit Angle",
+      "role": "Founder & Technology Lead",
+      "bio": "Leads strategy, client communication and delivery across software development, websites and digital growth projects. Focused on making technology useful, affordable and aligned with real business needs.",
+      "photo": "",
+      "isLead": true
+    },
+    {
+      "id": "web-dev",
+      "name": "Afshan ",
+      "role": "Websites & Digital Presence",
+      "bio": "Designs and builds responsive business websites, landing pages and online experiences that help brands look professional and convert visitors into enquiries.",
+      "photo": "",
+      "isLead": false
+    },
+    {
+      "id": "software",
+      "name": "Software Solutions",
+      "role": "Billing, Inventory & Custom Apps",
+      "bio": "Develops practical business software for billing, stock management, automation and customized workflows tailored to each client's operations.",
+      "photo": "",
+      "isLead": false
+    },
+    {
+      "id": "digital",
+      "name": "Digital Growth",
+      "role": "SEO, Marketing & Video",
+      "bio": "Supports visibility and engagement through SEO, digital marketing campaigns and video content that helps businesses reach the right audience online.",
+      "photo": "",
+      "isLead": false
+    }
+  ],
+  "clients": [
+    {
+      "id": "sample-retail",
+      "name": "Local Retail Partner",
+      "industry": "Retail",
+      "description": "Billing and inventory solutions for daily store operations.",
+      "website": "",
+      "logo": ""
+    },
+    {
+      "id": "sample-hospitality",
+      "name": "Hospitality Business",
+      "industry": "Hotels & Cafes",
+      "description": "Website and digital presence support for guest engagement.",
+      "website": "",
+      "logo": ""
+    },
+    {
+      "id": "sample-startup",
+      "name": "Growing Startup",
+      "industry": "Startups",
+      "description": "Custom software and online branding for early-stage growth.",
+      "website": "",
+      "logo": ""
+    }
+  ]
+}

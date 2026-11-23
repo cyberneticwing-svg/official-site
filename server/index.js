@@ -33,7 +33,12 @@ function readStore() {
 }
 
 function writeStore(data) {
-  fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2), "utf8");
+  const json = JSON.stringify(data, null, 2);
+  fs.writeFileSync(DATA_FILE, json, "utf8");
+  // Public static copy for Vercel / hosts without API
+  const publicDataDir = path.join(ROOT, "data");
+  fs.mkdirSync(publicDataDir, { recursive: true });
+  fs.writeFileSync(path.join(publicDataDir, "site.json"), json, "utf8");
 }
 
 function authRequired(req, res, next) {
@@ -351,8 +356,12 @@ app.get(["/admin", "/admin/"], (_req, res) => {
   res.sendFile(path.join(ROOT, "admin", "index.html"));
 });
 
-app.listen(config.port, () => {
-  console.log(`Cybernetics Wings running at http://localhost:${config.port}`);
-  console.log(`Admin dashboard: http://localhost:${config.port}/admin`);
-  console.log(`Login: ${config.adminUsername} / ${config.adminPassword}`);
-});
+if (require.main === module) {
+  app.listen(config.port, () => {
+    console.log(`Cybernetics Wings running at http://localhost:${config.port}`);
+    console.log(`Admin dashboard: http://localhost:${config.port}/admin`);
+    console.log(`Login: ${config.adminUsername} / ${config.adminPassword}`);
+  });
+}
+
+module.exports = app;

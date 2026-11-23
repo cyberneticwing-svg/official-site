@@ -1,20 +1,32 @@
 (() => {
   async function loadSite() {
+    let data = null;
     try {
       const res = await fetch("/api/site");
-      if (!res.ok) return;
-      const data = await res.json();
-      applyContact(data.contact || {});
-      applySocial(data.social || {});
-      applyTeam(data.team || []);
-      applyClientsVisibility(data.settings);
-      applyClients(data.clients || [], data.settings);
-      applyServices(data.services || []);
-      applyHomeServices(data.services || []);
-      applyFooterServices(data.services || []);
+      if (res.ok) data = await res.json();
     } catch {
-      // Static fallback content remains visible if API is offline
+      // API unavailable (common on static hosts like Vercel)
     }
+
+    if (!data) {
+      try {
+        const res = await fetch("/data/site.json");
+        if (res.ok) data = await res.json();
+      } catch {
+        // Keep hardcoded HTML content
+      }
+    }
+
+    if (!data) return;
+
+    applyContact(data.contact || {});
+    applySocial(data.social || {});
+    applyTeam(data.team || []);
+    applyClientsVisibility(data.settings);
+    applyClients(data.clients || [], data.settings);
+    applyServices(data.services || []);
+    applyHomeServices(data.services || []);
+    applyFooterServices(data.services || []);
   }
 
   function applyClientsVisibility(settings) {
